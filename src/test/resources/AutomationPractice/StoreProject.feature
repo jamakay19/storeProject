@@ -4,19 +4,42 @@ Feature:  Authentication functionality
 
     Scenario: Creating a new account
     Then the user clicking sign in button
-    And the user enters email "<email>" in email address window
-      | email        | tech2020@gmail.com |
+    And the user enters email in email address window
+      | email        | tech222@gmail.com |
     Then the user clicks on create an account button
-    And the user create a new account entering first name "<firstName>" last name "<lastName>" password "<password>" address "<address>"city "<city>" state "<state>"zip "<zip>" and mobile number"<mobileNumber>"
+    And the user create a new account entering following information
 
-      | firstName    | Nick               |
-      | lastName     | Jonas              |
-      | password     | nickJonas          |
-      | address      | 2200 w devon ave   |
+      | firstName    | Nina               |
+      | lastName     | Dobrev              |
+      | password     | Nina123          |
+      | address      | 2100 w devon ave   |
       | city         | Des Plaines        |
-      | state        | IL                 |
+      | state        | Illinois           |
       | zip          | 60018              |
-      | mobileNumber | 3123123123         |
+      | mobileNumber | 3123123423         |
+      And the user click register button and validate account created
+      |validation | Nina Dobrev|
+
+      Scenario: sign in with valid credentials
+        Given the user click sign out button
+        Then the user clicking sign in button
+        And the user provide email and password
+          | email1    | tech222@gmail.com |
+          | password1 | Nina123          |
+        Then the user click signing in button and validating signing in
+          | validate | Nina Dobrev |
+
+     Scenario: sign in with invalid credentials
+      Given the user click Sign Out button
+       Then the user clicking sign in button
+      And the user provide Email and Password
+        | email2    | tech@gmail.com |
+        | password2 | nina123        |
+       Then the user click signing in button and validate
+       |validate|Authentication failed.|
+
+
+
 
 
 
