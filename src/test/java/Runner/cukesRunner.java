@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "C:\\Users\\Jama\\IdeaProjects\\ShoppingWebsiteAutomation\\src\\test\\resources\\AutomationPractice\\groupProject.feature",
+        features = "C:\\Users\\Jama\\IdeaProjects\\ShoppingWebsiteAutomation\\src\\test\\resources\\AutomationPractice\\StoreProject.feature",
         glue = "StepDefinitions",
         dryRun = false
 )
